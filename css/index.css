@@ -643,4 +643,73 @@ footer .blank {
     font-size: 3.5rem;
   }
 }
+
+@media screen and (max-width: 845px) {
+  .about_page {
+    height: auto;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: .6fr 1fr;
+        grid-template-rows: .6fr 1fr;
+        grid-template-areas: "about" "cards";
+  }
+  .about_page .cards {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: cards;
+  }
+  .about_page .cards .card {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 10px auto;
+  }
+  .about_page .about_me {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: about;
+    height: auto;
+  }
+  .about_page .about_me p {
+    margin-top: 30px;
+  }
+  .certifications {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 110%;
+  }
+  .certifications .certfications__timeline .timeline {
+    -ms-grid-columns: .9fr 1fr;
+        grid-template-columns: .9fr 1fr;
+  }
+  .certifications .certfications__timeline .timeline .year::after {
+    width: 80px;
+    left: 45%;
+  }
+  footer {
+    -ms-grid-columns: 2fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .landing_page::after {
+    width: 150%;
+    top: -49%;
+    left: -71%;
+  }
+  footer::after {
+    top: 45%;
+    left: 40%;
+  }
+  .certifications .certfications__timeline,
+  .certifications h1 {
+    margin: auto;
+  }
+}
 /*# sourceMappingURL=index.css.map */

@@ -590,3 +590,75 @@ footer {
         }
     }
 }
+
+@media screen and (max-width:845px) {
+    .about_page {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: .6fr 1fr;
+        grid-template-areas: "about"
+            "cards";
+
+        .cards {
+            grid-area: cards;
+
+            .card {
+                height: fit-content;
+                margin: 10px auto;
+            }
+        }
+
+        .about_me {
+            grid-area: about;
+            height: auto;
+
+            p {
+                margin-top: 30px;
+            }
+        }
+    }
+
+    .certifications {
+        display: flex;
+        flex-direction: column;
+        font-size: 110%;
+
+
+
+        .certfications__timeline .timeline {
+            grid-template-columns: .9fr 1fr;
+
+            .year::after {
+                width: 80px;
+                left: 45%;
+
+            }
+        }
+
+    }
+
+    footer {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .landing_page::after {
+        width: 150%;
+        top: -49%;
+        left: -71%;
+    }
+
+    footer::after {
+        top: 45%;
+        left: 40%;
+    }
+
+    .certifications {
+
+        .certfications__timeline,
+        h1 {
+            margin: auto;
+        }
+    }
+}
