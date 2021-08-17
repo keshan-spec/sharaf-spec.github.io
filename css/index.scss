@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 $spcl-font: 'White Rabbit';
 $default-font: 'Roboto Mono';
 $bg-color:#2D2E32;
 $bg-color-darker:#252429;
 $highlight-color:#56E85B;
 $lighter-color:#ABABAB;
+
 
 html {
     scroll-behavior: smooth;
@@ -41,9 +44,6 @@ body {
     color: white;
     position: relative;
 }
-
-
-
 
 .landing_page {
     max-height: 100vh;
@@ -325,7 +325,8 @@ body {
 
 .certifications {
     width: 100%;
-    min-height: 100vh;
+    min-height: 70vh;
+    padding-bottom: 50px;
     background-color: $bg-color-darker;
 
     h1 {
@@ -335,19 +336,24 @@ body {
 
     .certfications__timeline {
         padding: 0 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: flex-start;
+        // align-items: flex-start;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 2rem;
 
         .timeline {
-            margin-bottom: 60px;
+            margin-right: 40px;
             display: grid;
             grid-template-columns: .5fr 1fr;
             grid-template-rows: 1fr 1fr 1fr;
             grid-template-areas: "year award1"
-                "blank award2"
-                "blank award3";
+                "blank award2";
+
+
 
             .year {
                 grid-area: year;
@@ -454,7 +460,7 @@ footer {
             position: absolute;
             background-color: $lighter-color;
             opacity: .6;
-            top: 20%;
+            top: 10%;
         }
 
     }
@@ -516,6 +522,19 @@ footer {
             }
         }
     }
+
+
+    .certifications .certfications__timeline {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+
+        .timeline {
+            margin-right: 40px;
+            grid-template-columns: 0.5fr 3fr;
+            grid-template-rows: 1fr;
+        }
+    }
+
 }
 
 @media screen and (max-width:1090px) {
@@ -642,6 +661,29 @@ footer {
     }
 }
 
+@media screen and (max-width:625px) {
+
+    footer::after {
+        top: 45%;
+        left: 40%;
+    }
+
+    .certifications {
+
+        .certfications__timeline {
+            .timeline {
+                grid-template-columns: .5fr 1fr;
+
+                .year::after {
+                    width: 70px;
+                    left: 65%;
+                }
+            }
+        }
+    }
+}
+
+
 @media screen and (max-width:550px) {
     .landing_page::after {
         width: 150%;
@@ -654,11 +696,69 @@ footer {
         left: 40%;
     }
 
+    footer {
+        grid-template-areas:
+            "links links links"
+            "copy copy social";
+        position: relative;
+    }
+
     .certifications {
 
-        .certfications__timeline,
-        h1 {
-            margin: auto;
+        .certfications__timeline {
+            .timeline .certs {
+                height: 85px;
+                width: 100%;
+
+
+            }
+
+            .timeline {
+                .year::after {
+                    width: 50px;
+                    left: 65%;
+                }
+            }
         }
     }
+}
+
+@media screen and (max-width:411px) {
+
+    footer::after {
+        top: 45%;
+        left: 40%;
+    }
+
+    .landing_page::after {
+        top: -54%;
+        left: -79%;
+    }
+
+    .certifications {
+
+        .certfications__timeline {
+            .timeline {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: "year year"
+                    "award1 blank";
+
+                .year {
+
+                    margin-bottom: 20px;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+
+                    &::after {
+                        width: 70px;
+                        left: 40%;
+                        top: 48%;
+                    }
+                }
+            }
+        }
+    }
+
+
 }
