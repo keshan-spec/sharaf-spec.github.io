@@ -83,7 +83,7 @@ body {
             position: absolute;
             top: 4%;
             right: 6%;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
 
 
@@ -98,7 +98,9 @@ body {
         }
 
         .links.active {
-            display: flex;
+            // display: flex;
+            height: 100%;
+            transition: height .5s ease-out;
         }
 
         .links {
@@ -668,13 +670,14 @@ footer {
             .links {
                 flex-direction: column;
                 justify-content: center;
-                display: none;
+                // display: none;
+                transition: width .5s ease-in;
                 align-items: center;
                 background-color: #56E85B;
                 z-index: 100;
                 position: absolute;
                 width: 100%;
-                height: 100%;
+                height: 0%;
                 overflow: hidden;
 
                 .nav__links,
@@ -683,6 +686,16 @@ footer {
                     padding: 0;
                     font-size: 1.9rem;
                     flex-direction: column;
+
+                    li {
+                        width: 100%;
+                        text-align: center;
+                        padding: 10px 0;
+
+                        &:hover {
+                            background-color: #35363d4d;
+                        }
+                    }
                 }
 
                 .nav__links {
